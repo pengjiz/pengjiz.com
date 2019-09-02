@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main role="main" class="page">
+  <header class="page__header">
+    <h1>
+      <a href="{{ "/" | relURL }}" class="page__header__home">{{ site.Title }}</a>
+      / <span class="page__header__title">{{ .Title }}</span>
+    </h1>
+  </header>
+  <article class="entry__content">
+    {{ .Content }}
+  </article>
+</main>
+{{ end }}

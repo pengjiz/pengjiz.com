@@ -1,0 +1,66 @@
+.highlight {
+  color: $highlight-base-color;
+
+  .k,
+  .kc,
+  .kd,
+  .kn,
+  .kp,
+  .kr,
+  .kt {
+    color: $highlight-keyword-color;
+  }
+
+  .o,
+  .ow {
+    color: $highlight-op-color;
+  }
+
+  .err {
+    color: $highlight-emph-color;
+  }
+
+  .p {
+    @include secondary-content;
+  }
+
+  .c,
+  .ch,
+  .cm,
+  .c1,
+  .cs,
+  .cp,
+  .cpf {
+    @include secondary-content;
+  }
+
+  .s,
+  .sa,
+  .sb,
+  .sc,
+  .sd,
+  .s2,
+  .sh,
+  .sx,
+  .s1,
+  .ss {
+    color: $highlight-string-color;
+  }
+
+  .se,
+  .si,
+  .sr {
+    color: $highlight-keyword-color;
+  }
+
+  .ge {
+    color: $highlight-emph-color;
+  }
+
+  .gh,
+  .gp,
+  .gs,
+  .gu {
+    color: $highlight-keyword-color;
+  }
+}

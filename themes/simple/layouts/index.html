@@ -1,0 +1,36 @@
+{{ define "main" }}
+<main role="main" class="home">
+  <section class="home__header">
+    <a href="{{ "/" | relURL }}" class="home__header__logo">
+      <img alt="HeArt LOGO"
+           src="{{ site.Params.logoURL | relURL }}">
+    </a>
+    <h1 class="home__header__title">
+      <a href="{{ "/" | relURL }}">
+        {{- if .Title -}}
+        {{ .Title }}
+        {{- else -}}
+        {{ site.Title }}
+        {{- end -}}
+      </a>
+    </h1>
+    <div class="home__header__description">
+      {{ .Description }}
+    </div>
+    <nav class="home__header__nav">
+      <a href="{{ "/about" | relURL }}">About</a>
+      <a href="{{ "/zh" | relURL }}">Chinese</a>
+      <a href="{{ "/en" | relURL }}">English</a>
+    </nav>
+  </section>
+  <hr>
+  <section class="home__quote">
+    <div class="home__quote__quote" lang="zh">
+      {{ .Params.quote }}
+    </div>
+    <div class="home__quote__translation">
+      {{ .Params.quoteTrans }}
+    </div>
+  </section>
+</main>
+{{ end }}

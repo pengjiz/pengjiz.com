@@ -1,0 +1,12 @@
+{{- $lang := site.LanguageCode | default "en" -}}
+{{- if eq .Section "zh" -}}
+{{- $lang = "zh" -}}
+{{- end -}}
+<!DOCTYPE html>
+<html lang="{{ $lang }}" prefix="og: http://ogp.me/ns#">
+  {{ partial "head.html" . }}
+  <body class="container">
+    {{ block "main" . }}{{ end }}
+    {{ partial "socials.html" . }}
+  </body>
+</html>

@@ -1,0 +1,21 @@
+baseURL = "https://pengjiz.com"
+languageCode = "en"
+title = "HeArt"
+theme = "simple"
+hasCJKLanguage = true
+paginate = 10
+disableKinds = ["taxonomy", "taxonomyTerm"]
+footnoteReturnLinkContents = "[Back]"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+
+[author]
+name = "Pengji Zhang"
+email = "me@pengjiz.com"
+
+[params]
+logoURL = "media/images/logo.png"
+blogSections = ["zh", "en"]
+
+[params.socials]
+github = "pengjiz"

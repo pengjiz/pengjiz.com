@@ -1,0 +1,177 @@
+.entry {
+  margin-bottom: 2 * $line-height;
+
+  &__header {
+    margin-bottom: $line-height;
+
+    &__title {
+      margin: 0 auto;
+    }
+
+    &__meta {
+      margin-top: 0.2em;
+
+      @include minor-content;
+
+      &__author {
+        border-bottom: 0;
+        text-transform: uppercase;
+
+        &:hover {
+          color: inherit;
+        }
+      }
+    }
+
+    &__summary {
+      margin: 0.5em auto;
+      text-align: justify;
+
+      @include hyphens(auto);
+      @include secondary-content;
+    }
+
+    &__keywords {
+      @include secondary-content;
+
+      &__keyword {
+        margin-right: 0.5em;
+
+        &::before {
+          content: "#";
+
+          @include minor-content;
+        }
+      }
+    }
+  }
+
+  &__content {
+    p {
+      margin: 0 auto;
+      text-indent: $p-indent-size;
+      line-height: $line-height;
+      text-align: justify;
+
+      @include hyphens(auto);
+    }
+
+    &__header + p,
+    h2 + p,
+    h3 + p,
+    hr + p,
+    p:first-child {
+      text-indent: 0;
+    }
+
+    a {
+      text-decoration: underline $anchor-underline-color;
+    }
+
+    figure {
+      text-align: center;
+      margin: $line-height 0;
+    }
+
+    figcaption {
+      h4 {
+        margin: 0 auto;
+      }
+
+      p {
+        text-indent: 0;
+
+        @include secondary-content;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    pre {
+      margin: $line-height 0 $line-height $p-indent-size;
+      overflow-x: auto;
+    }
+
+    ul,
+    ol {
+      margin: $line-height 0 $line-height $p-indent-size;
+      padding: 0;
+    }
+
+    li {
+      line-height: $line-height;
+      text-align: justify;
+
+      @include hyphens(auto);
+    }
+
+    blockquote {
+      margin: $line-height 0;
+      padding-left: $p-indent-size;
+      border-left: $auxilliary-border;
+
+      p {
+        text-indent: 0;
+      }
+
+      footer {
+        text-align: right;
+      }
+    }
+
+    table {
+      min-width: 50%;
+      max-width: 100%;
+      overflow-x: auto;
+      margin: $line-height auto;
+      border-top: $table-border;
+      border-bottom: $table-border;
+
+      th {
+        border-bottom: $table-border;
+      }
+    }
+
+    .footnotes {
+      @include secondary-content;
+
+      hr {
+        margin: $line-height auto;
+
+        &::after {
+          content: "";
+          width: 50%;
+          max-width: 150px;
+          border-top: $auxilliary-border;
+        }
+      }
+    }
+
+    .MJXc-display {
+      overflow-x: auto;
+    }
+  }
+}
+
+:lang(zh),
+:lang(ja) {
+  .entry__content {
+    em {
+      font-style: normal;
+      color: $cjk-emph-color;
+    }
+
+    a {
+      text-decoration: none;
+      border-bottom: $auxilliary-border;
+    }
+
+    .footnote-ref a,
+    .footnote-return {
+      text-decoration: underline $anchor-underline-color;
+      border-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@media screen and (max-width: $break-point) {
+  html {
+    font-size: $small-font-size;
+  }
+
+  .home {
+    margin-top: 0;
+  }
+
+  .entry__content p,
+  .entry__content li,
+  .entry__header__summary,
+  .list__entry__summary {
+    text-align: left;
+  }
+
+  .entry__content table {
+    min-width: 70%;
+  }
+}

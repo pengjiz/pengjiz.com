@@ -1,0 +1,43 @@
+{{ define "main" }}
+<main role="main" class="page">
+  <header class="page__header">
+    <h1>
+      <a href="{{ "/" | relURL }}" class="page__header__home">{{ site.Title }}</a>
+      / <span class="page__header__title">{{ .Title }}</span>
+    </h1>
+  </header>
+  <section class="list">
+    {{ range .Paginator.Pages -}}
+    <section class="list__entry">
+      <div class="list__entry__meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+      <h2 class="list__entry__title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      <div class="list__entry__summary">
+        {{ if .Description -}}
+        {{ .Description }}
+        {{- else -}}
+        {{ .Summary | plainify }}
+        {{- end }}
+      </div>
+    </section>
+    {{ end -}}
+  </section>
+  <footer class="pager">
+    <a {{ if .Paginator.HasPrev -}}
+       class="pager__button pager__button--prev"
+       href="{{ .Paginator.Prev.RelPermalink }}"
+       {{- else -}}
+       class="pager__button pager__button--prev disabled-link"
+       href="#"{{ end }}>&lt; Prev</a>
+    <span class="pager__num">Page {{ .Paginator.PageNumber }}
+      of {{ .Paginator.TotalPages }}</span>
+    <a {{ if .Paginator.HasNext -}}
+       class="pager__button pager__button--next"
+       href="{{ .Paginator.Next.RelPermalink }}"
+       {{- else -}}
+       class="pager__button pager__button--next disabled-link"
+       href="#"{{ end }}>Next &gt;</a>
+  </footer>
+</main>
+{{ end }}

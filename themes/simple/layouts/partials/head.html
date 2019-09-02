@@ -1,0 +1,32 @@
+{{- $styles := resources.Get "css/main.scss" | toCSS | minify | fingerprint -}}
+{{- $section := site.Home -}}
+{{- if .CurrentSection -}}
+{{- $section = .CurrentSection -}}
+{{- end -}}
+{{- $rss := $section.OutputFormats.Get "RSS" -}}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }}{{ if (not .IsHome) }} | {{ site.Title }}{{ end }}</title>
+  {{ with site.Author.name }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ with .Keywords }}<meta name="keywords" content="{{ delimit . "," }}">{{ end }}
+  {{ hugo.Generator }}
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ .Title }}">
+  {{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ site.Params.logoURL | absURL }}">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700|Source+Code+Pro"
+        rel="stylesheet">
+  <link href="{{ $styles.RelPermalink }}"
+        integrity="{{ $styles.Data.Integrity }}"
+        rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"
+          async></script>
+  {{ with $rss -}}
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml"
+        title="{{ site.Title }}">
+  {{- end }}
+  <link href="/favicon-152.png" rel="apple-touch-icon-precomposed">
+</head>

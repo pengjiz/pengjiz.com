@@ -1,0 +1,42 @@
+{{- $styles := resources.Get "css/main.scss" | toCSS | minify | fingerprint -}}
+{{- $lang := site.LanguageCode | default "en" -}}
+<!DOCTYPE html>
+<html lang="{{ $lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Found | {{ site.Title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700|Source+Code+Pro"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}"
+          integrity="{{ $styles.Data.Integrity }}">
+    <link href="/favicon-152.png" rel="apple-touch-icon">
+  </head>
+  <body class="container">
+    <main class="page" role="main">
+      <header class="page__header">
+        <h1>
+          <a href="{{ "/" | relURL }}" class="page__header__home">{{ site.Title }}</a>
+          / <span class="page__header__title">404</span>
+        </h1>
+      </header>
+      <article class="entry__content">
+        <p>
+          I am sorry but the page could not be found. Maybe you got the URL
+          wrong or the page has been removed by me.
+        </p>
+        <p>
+          If you are confused about the page not found, feel free to contact me
+          via email or open an issue on the GitHub repository for this site.
+          Thanks.
+        </p>
+        <p>
+          Otherwise, you can check my <a href="{{ "/" | relURL }}">homepage</a>,
+          my <a href="{{ "/zh" | relURL }}">Chinese blog</a> or
+          my <a href="{{ "/en" | relURL }}">English blog</a>.
+        </p>
+      </article>
+    </main>
+    {{ partial "socials.html" . }}
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{{- $section := site.Home -}}
+{{- if .CurrentSection -}}
+{{- $section = .CurrentSection -}}
+{{- end -}}
+{{- $rss := $section.OutputFormats.Get "RSS" -}}
+<footer class="socials">
+  {{ with site.Author.email -}}
+  <a class="socials__link" href="mailto:{{ . }}">
+    {{- partial "icons/mail.svg" . -}}
+  </a>
+  {{- end }}
+  {{ with site.Params.socials.github -}}
+  <a class="socials__link" href="https://github.com/{{ . }}">
+    {{- partial "icons/github.svg" . -}}
+  </a>
+  {{- end }}
+  {{ with $rss -}}
+  <a class="socials__link" href="{{ .RelPermalink }}">
+    {{- partial "icons/rss.svg" . -}}
+  </a>
+  {{- end }}
+</footer>

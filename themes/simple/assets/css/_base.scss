@@ -1,0 +1,136 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// Typography
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  color: $base-color;
+  font-family: $base-font-family;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  color: $bold-color;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  margin: $h1-margin;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  margin: $h2-margin;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  margin: $h3-margin;
+  font-weight: bold;
+}
+
+h4,
+h5,
+h6 {
+  color: $bold-color;
+  font-weight: normal;
+  font-size: $p-font-size;
+  line-height: $line-height;
+}
+
+p {
+  font-size: $p-font-size;
+}
+
+strong {
+  color: $bold-color;
+}
+
+sup,
+sub {
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: 70%;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  top: -0.25em;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+
+hr {
+  border: 0;
+  display: block;
+  margin: $line-height auto 0;
+
+  &::after {
+    display: block;
+    content: "* * *";
+    text-align: center;
+    line-height: $line-height;
+    font-size: 1.6em;
+
+    @include minor-content;
+  }
+}
+
+code,
+kbd {
+  font-family: $code-font-family;
+  font-size: $code-font-size;
+
+  @include hyphens(none);
+}
+
+// Anchors
+a {
+  text-decoration: none;
+  color: $anchor-color;
+}
+
+a:hover {
+  color: $anchor-hover-color;
+}
+
+// Misc
+.container {
+  max-width: $container-width;
+  padding: $container-padding;
+  box-sizing: border-box;
+  margin: $container-margin;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+
+  @include minor-content;
+}
+
+.icon {
+  width: $icon-width;
+}

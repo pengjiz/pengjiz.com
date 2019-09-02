@@ -1,0 +1,45 @@
+{{ define "main" }}
+<main role="main" class="page">
+  <article class="entry">
+    <header class="entry__header">
+      <h1 class="entry__header__title">{{ .Title }}</h1>
+      <div class="entry__header__meta">
+        {{ .Date.Format "Jan 2, 2006" }} |
+        <a href="{{ "/" | relURL}}" class="entry__header__meta__author">
+          {{- site.Author.name -}}
+        </a>
+      </div>
+      {{ with .Description -}}
+      <div class="entry__header__summary">
+        {{ . }}
+      </div>
+      {{- end }}
+      {{ with .Keywords -}}
+      <div class="entry__header__keywords">
+        {{- range . -}}
+        <span class="entry__header__keywords__keyword">{{ . }}</span>
+        {{- end -}}
+      </div>
+      {{- end }}
+    </header>
+    <div class="entry__content">
+      {{ .Content }}
+    </div>
+  </article>
+  <footer class="pager">
+    <a {{ if .NextInSection -}}
+       class="pager__button pager__button--prev"
+       href="{{ .NextInSection.RelPermalink }}"
+       {{- else -}}
+       class="pager__button pager__button--prev disabled-link"
+       href="#"{{ end }}>&lt; Newer</a>
+    <a class="pager__button" href="{{ .Section | relURL }}">Home</a>
+    <a {{ if .PrevInSection -}}
+       class="pager__button pager__button--next"
+       href="{{ .PrevInSection.RelPermalink }}"
+       {{- else -}}
+       class="pager__button pager__button--next disabled-link"
+       href="#"{{ end }}>Older &gt;</a>
+  </footer>
+</main>
+{{ end }}
