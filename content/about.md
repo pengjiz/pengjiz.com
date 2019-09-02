@@ -29,6 +29,7 @@ by any means.
 
 ## Privacy
 
-I do not collect any data on this site. It does not use Google Analytics or
-anything similar. However, it does use Google fonts and is hosted on Netlify, so
-their privacy policies apply, and hey may collect visitors' information.
+I will not collect any data on this site. It does not use Google Analytics or
+anything similar. However, it does use [Google Fonts](https://fonts.google.com/)
+and is hosted on [Netlify](https://www.netlify.com/). They may collect visitors'
+information so you may want to check their privacy policies.
