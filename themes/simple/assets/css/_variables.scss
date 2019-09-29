@@ -66,6 +66,4 @@ $auxilliary-border: 1px solid $auxilliary-border-color !default;
 
 @mixin hyphens($mode) {
   hyphens: $mode;
-  -webkit-hyphens: $mode;
-  -ms-hyphens: $mode;
 }
