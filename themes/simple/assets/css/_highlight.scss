@@ -1,5 +1,5 @@
 .highlight {
-  color: $highlight-base-color;
+  color: $code-base-color;
 
   .k,
   .kc,
@@ -8,16 +8,16 @@
   .kp,
   .kr,
   .kt {
-    color: $highlight-keyword-color;
+    color: $code-keyword-color;
   }
 
   .o,
   .ow {
-    color: $highlight-op-color;
+    color: $code-operator-color;
   }
 
   .err {
-    color: $highlight-emph-color;
+    color: $code-alert-color;
   }
 
   .p {
@@ -44,23 +44,23 @@
   .sx,
   .s1,
   .ss {
-    color: $highlight-string-color;
+    color: $code-string-color;
   }
 
   .se,
   .si,
   .sr {
-    color: $highlight-keyword-color;
+    color: $code-keyword-color;
   }
 
   .ge {
-    color: $highlight-emph-color;
+    color: $code-alert-color;
   }
 
   .gh,
   .gp,
   .gs,
   .gu {
-    color: $highlight-keyword-color;
+    color: $code-keyword-color;
   }
 }

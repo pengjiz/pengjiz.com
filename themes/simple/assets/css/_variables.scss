@@ -19,19 +19,21 @@ $h3-font-size: 1.1rem !default;
 $h3-margin: $line-height auto ($line-height - $h3-font-size) !default;
 
 // Color
-$base-color: #333332;
-$cjk-emph-color: #95001a;
-$bold-color: #111112;
-$auxilliary-border-color: rgba(0, 0, 0, 0.3);
+$base-color: #333332 !default;
+$alternate-color: #555556 !default;
+$emphasis-color: #95001a !default;
+$strong-color: #111112 !default;
+$highlight-color: #777 !default;
+$minor-color: rgba(0, 0, 0, 0.3) !default;
 
 // Code
 $code-font-family: "Source Code Pro", monospace !default;
 $code-font-size: 0.8rem !default;
-$highlight-base-color: #555556;
-$highlight-string-color: #333332;
-$highlight-keyword-color: #111110;
-$highlight-op-color:  #111112;
-$highlight-emph-color: $cjk-emph-color;
+$code-base-color: $base-color !default;
+$code-string-color: $alternate-color !default;
+$code-keyword-color: $strong-color !default;
+$code-operator-color: $strong-color !default;
+$code-alert-color: $emphasis-color !default;
 
 // Container
 $container-width: 768px !default;
@@ -44,17 +46,17 @@ $small-font-size: 16px !default;
 
 // Anchor
 $anchor-color: inherit !default;
-$anchor-hover-color: #777 !default;
-$anchor-underline-color: $auxilliary-border-color !default;
+$anchor-hover-color: $highlight-color !default;
+$anchor-underline-color: $minor-color !default;
 
 // Table
-$table-border: 1px solid #555554 !default;
+$table-border: 1px solid $alternate-color !default;
 
 // Icon
 $icon-width: 1em !default;
 
 // Misc
-$auxilliary-border: 1px solid $auxilliary-border-color !default;
+$auxilliary-border: 1px solid $minor-color !default;
 
 @mixin secondary-content {
   opacity: 0.7;
@@ -62,8 +64,4 @@ $auxilliary-border: 1px solid $auxilliary-border-color !default;
 
 @mixin minor-content {
   opacity: 0.3;
-}
-
-@mixin hyphens($mode) {
-  hyphens: $mode;
 }

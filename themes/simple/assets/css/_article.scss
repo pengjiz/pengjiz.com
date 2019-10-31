@@ -26,8 +26,8 @@
     &__summary {
       margin: 0.5em auto;
       text-align: justify;
+      hyphens: auto;
 
-      @include hyphens(auto);
       @include secondary-content;
     }
 
@@ -52,8 +52,7 @@
       text-indent: $p-indent-size;
       line-height: $line-height;
       text-align: justify;
-
-      @include hyphens(auto);
+      hyphens: auto;
     }
 
     &__header + p,
@@ -103,8 +102,7 @@
     li {
       line-height: $line-height;
       text-align: justify;
-
-      @include hyphens(auto);
+      hyphens: auto;
     }
 
     blockquote {
@@ -160,7 +158,7 @@
   .entry__content {
     em {
       font-style: normal;
-      color: $cjk-emph-color;
+      color: $emphasis-color;
     }
 
     a {

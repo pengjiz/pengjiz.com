@@ -19,7 +19,7 @@ h1,
 h2,
 h3 {
   line-height: 1;
-  color: $bold-color;
+  color: $strong-color;
 }
 
 h1 {
@@ -46,7 +46,7 @@ h3 {
 h4,
 h5,
 h6 {
-  color: $bold-color;
+  color: $strong-color;
   font-weight: normal;
   font-size: $p-font-size;
   line-height: $line-height;
@@ -57,7 +57,7 @@ p {
 }
 
 strong {
-  color: $bold-color;
+  color: $strong-color;
 }
 
 sup,
@@ -102,8 +102,7 @@ code,
 kbd {
   font-family: $code-font-family;
   font-size: $code-font-size;
-
-  @include hyphens(none);
+  hyphens: none;
 }
 
 // Anchors

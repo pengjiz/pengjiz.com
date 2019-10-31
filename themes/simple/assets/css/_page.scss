@@ -63,8 +63,8 @@
     &__summary {
       margin-top: 0.5em;
       text-align: justify;
+      hyphens: auto;
 
-      @include hyphens(auto);
       @include secondary-content;
     }
   }
