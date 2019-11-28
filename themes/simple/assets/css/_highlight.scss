@@ -1,6 +1,11 @@
 .highlight {
   color: $code-base-color;
 
+  .hl {
+    display: block;
+    background-color: $code-marker-color;
+  }
+
   .k,
   .kc,
   .kd,

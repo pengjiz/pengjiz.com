@@ -24,6 +24,7 @@ $alternate-color: #555556 !default;
 $emphasis-color: #95001a !default;
 $strong-color: #111112 !default;
 $highlight-color: #777 !default;
+$marker-color: #f7f7f7 !default;
 $minor-color: rgba(0, 0, 0, 0.3) !default;
 
 // Code
@@ -34,6 +35,7 @@ $code-string-color: $alternate-color !default;
 $code-keyword-color: $strong-color !default;
 $code-operator-color: $strong-color !default;
 $code-alert-color: $emphasis-color !default;
+$code-marker-color: $marker-color !default;
 
 // Container
 $container-width: 768px !default;
