@@ -6,8 +6,10 @@ hasCJKLanguage = true
 paginate = 10
 disableKinds = ["taxonomy", "taxonomyTerm"]
 footnoteReturnLinkContents = "[Back]"
-pygmentsCodefences = true
-pygmentsUseClasses = true
+
+[markup]
+[markup.highlight]
+noClasses = false
 
 [author]
 name = "Pengji Zhang"
