@@ -10,6 +10,7 @@ footnoteReturnLinkContents = "[Back]"
 [markup]
 [markup.highlight]
 noClasses = false
+lineNumbersInTable = false
 
 [author]
 name = "Pengji Zhang"
