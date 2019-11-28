@@ -1,24 +1,23 @@
+# Basic information
 baseURL = "https://pengjiz.com"
-languageCode = "en"
 title = "HeArt"
+author = { name = "Pengji Zhang", email = "me@pengjiz.com" }
+
+# Generator configuration
 theme = "simple"
+languageCode = "en"
 hasCJKLanguage = true
 paginate = 10
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = [ "taxonomy", "taxonomyTerm" ]
 footnoteReturnLinkContents = "[Back]"
-
 [markup]
-[markup.highlight]
-noClasses = false
-lineNumbersInTable = false
+  [markup.highlight]
+    noClasses = false
+    lineNumbersInTable = false
 
-[author]
-name = "Pengji Zhang"
-email = "me@pengjiz.com"
-
+# Additional parameters
 [params]
-logoURL = "media/images/logo.png"
-blogSections = ["zh", "en"]
-
-[params.socials]
-github = "pengjiz"
+  logoURL = "media/images/logo.png"
+  blogSections = [ "zh", "en" ]
+  [params.socials]
+    github = "pengjiz"
