@@ -13,7 +13,6 @@ footnoteReturnLinkContents = "[Back]"
 [markup]
   [markup.highlight]
     noClasses = false
-    lineNumbersInTable = false
 
 # Additional parameters
 [params]

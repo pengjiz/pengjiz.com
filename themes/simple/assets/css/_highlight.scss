@@ -6,13 +6,6 @@
     background-color: $code-marker-color;
   }
 
-  .ln {
-    margin-right: 1em;
-    user-select: none;
-
-    @include minor-content;
-  }
-
   .k,
   .kc,
   .kd,
