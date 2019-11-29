@@ -1,11 +1,13 @@
 .highlight {
   color: $code-base-color;
 
+  // Highlighted line
   .hl {
     display: block;
     background-color: $code-marker-color;
   }
 
+  // Keyword
   .k,
   .kc,
   .kd,
@@ -16,29 +18,13 @@
     color: $code-keyword-color;
   }
 
+  // Operator
   .o,
   .ow {
     color: $code-operator-color;
   }
 
-  .err {
-    color: $code-alert-color;
-  }
-
-  .p {
-    @include secondary-content;
-  }
-
-  .c,
-  .ch,
-  .cm,
-  .c1,
-  .cs,
-  .cp,
-  .cpf {
-    @include secondary-content;
-  }
-
+  // String
   .s,
   .sa,
   .sb,
@@ -58,6 +44,28 @@
     color: $code-keyword-color;
   }
 
+  // Error
+  .err {
+    color: $code-alert-color;
+  }
+
+  // Punctuation
+  .p {
+    @include secondary-content;
+  }
+
+  // Comment
+  .c,
+  .ch,
+  .cm,
+  .c1,
+  .cs,
+  .cp,
+  .cpf {
+    @include secondary-content;
+  }
+
+  // Generic
   .ge {
     color: $code-alert-color;
   }
