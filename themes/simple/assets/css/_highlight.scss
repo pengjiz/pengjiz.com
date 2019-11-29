@@ -8,6 +8,7 @@
 
   .ln {
     margin-right: 1em;
+    user-select: none;
 
     @include minor-content;
   }
