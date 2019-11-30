@@ -1,5 +1,6 @@
 [build]
-  command = "hugo"
-  publish = "public"
-  [build.environment]
-    HUGO_VERSION = "0.60.0"
+command = "hugo"
+publish = "public"
+
+[build.environment]
+HUGO_VERSION = "0.60.0"
