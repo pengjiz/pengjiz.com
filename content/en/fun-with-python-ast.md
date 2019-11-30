@@ -15,7 +15,7 @@ while ago, I found an interesting library
 through the documentation of `ast` and try to play with it.
 
 As an example, in this post I will implement a simple "pipeline" feature
-available in many places---Unix shells, F#, Lisp, R, etc.
+available in many places -- Unix shells, F#, Lisp, R, etc.
 
 ## Pipeline with infix notation
 
@@ -159,18 +159,19 @@ This is my favorite way so far.
 ## Outro
 
 How can we use it to run a Python script? I can come up with two ways. The first
-one is to make a simple script that reads a file into a string, parses it,
-transforms it, and finally executes it---which is exactly what we do in the
+one is to make a wrapper around the interpreter that reads a file into a string,
+parses it, transforms it, and finally executes it -- exactly what we do in the
 snippets above. However, in that way we cannot apply the transformations to the
 modules imported. The second way is to customize how a module is loaded with the
 [meta path hook](https://docs.python.org/3/reference/import.html#the-meta-path).
 In that way all the modules imported will use the extensions. That is what the
-moshmosh library choose to use. If you are interested you can have a look at the
+moshmosh library uses. If you are interested you can have a look at the
 [`extension_register.py`](https://github.com/thautwarm/moshmosh/blob/master/moshmosh/extension_register.py)
 file.
 
 `ast` gives us a chance to modify the AST before it is executed. In some sense
-that is like what we do with Lisp macros. I think it is neat but if you ask me
-"Will you use it in any serious project?", my answer would perhaps be "No". Even
-though it is less hacky than `inspect`, it still feels like a big hack. Besides,
-I tend to avoid introducing new dependencies only for syntax sugars.
+that is like what we do with Lisp macros. I think it is neat but perhaps will
+not use it in any serious project. Even though it is less hacky than `inspect`,
+it still feels like a big hack. Besides, I tend to avoid introducing new
+dependencies only for syntax sugars. The low magic way is good enough in most
+cases.
