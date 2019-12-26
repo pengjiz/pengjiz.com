@@ -1,0 +1,13 @@
+@media print {
+  html {
+    font-size: $small-font-size;
+  }
+
+  .pager {
+    display: none;
+  }
+
+  .socials {
+    display: none;
+  }
+}
