@@ -30,5 +30,7 @@ anything in any way you like.
 
 I will not collect any data on this site. It does not use Google Analytics or
 anything similar. However, it does use [Google Fonts](https://fonts.google.com/)
-and is hosted on [Netlify](https://www.netlify.com/). They may collect visitors'
-information so you may want to check their privacy policies.
+for web fonts, [jsDelivr](https://www.jsdelivr.com/) for loading
+[MathJax](https://www.mathjax.org/), and [Netlify](https://www.netlify.com/) for
+hosting. They may collect visitors' information so you may want to check their
+privacy policies.
