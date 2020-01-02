@@ -3,7 +3,7 @@
 {{- $pctx = site -}}
 {{- end -}}
 {{- $pages := where $pctx.RegularPages "Section" "in" site.Params.blogSections -}}
-{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 -}}
 {{- $pages = $pages | first $limit -}}
 {{- end -}}
@@ -11,7 +11,7 @@
 {{- if eq .Section "zh" -}}
 {{- $lang = "zh" -}}
 {{- end -}}
-{{- `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>` | safeHTML }}
+{{- `<?xml version="1.0" encoding="utf-8" standalone="yes"?>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>
