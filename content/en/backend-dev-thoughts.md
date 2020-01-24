@@ -63,9 +63,8 @@ I did find a few points of Flask that I thought were not so good.
 The first thing is the context locals. This is actually a pretty interesting
 design of Flask and allows you to type less, but at the beginning this feature
 was confusing. In Flask, there are a few objects that are [*local
-proxies*](http://werkzeug.pocoo.org/docs/0.14/local/). The value of such an
-object depends on the context. For example, in Flask, if you want to get the
-request data, you would use:
+proxies*][local proxies]. The value of such an object depends on the context.
+For example, in Flask, if you want to get the request data, you would use:
 
 ```python
 from flask import request
@@ -125,8 +124,7 @@ The third thing is on extensions. The extensions of Flask are mostly
 lightweight. That is good for me in most cases, but sometimes I feel very
 jealous of those full-featured Django extensions. For example, as we all know
 Django has a builtin `admin` module, which is very well designed, while the
-[Flask-Admin](https://github.com/flask-admin/flask-admin) seems not very usable
-to me.
+[Flask-Admin] seems not very usable to me.
 
 ## API Design
 
@@ -135,14 +133,12 @@ frontend part much easier, and even if you hate your frontend partner, it does
 make the backend development less painful.
 
 In this project, the API was still the good old REST API, mainly because the
-Python GraphQL implementation [Graphene](http://graphene-python.org/) was still
-in its infancy when I made the decision. I chose
-[Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/) and
-[marshmallow](https://marshmallow.readthedocs.io/en/latest/) for building the
-API. For one database table, I needed to write at least two resources for common
+Python GraphQL implementation [Graphene] was still in its infancy when I made
+the decision. I chose [Flask-RESTful] and [marshmallow] for building the API.
+For one database table, I needed to write at least two resources for common
 operations, and for one resource, sometimes I needed to write three schemas for
-data validation and serialization. Compared to [Prisma](https://www.prisma.io/),
-that feels quite verbose.
+data validation and serialization. Compared to [Prisma], that feels quite
+verbose.
 
 ## Deployment
 
@@ -157,3 +153,10 @@ the app and dependencies freely -- just build and push a new image and run a new
 container, and I could also use my only laptop as a staging machine without much
 pain. I am still not very familiar with Docker but the experience so far is
 positive.
+
+[local proxies]: http://werkzeug.pocoo.org/docs/0.14/local/
+[Flask-Admin]: https://github.com/flask-admin/flask-admin
+[Graphene]: http://graphene-python.org/
+[Flask-RESTful]: https://flask-restful.readthedocs.io/en/latest/
+[marshmallow]: https://marshmallow.readthedocs.io/en/latest/
+[Prisma]: https://www.prisma.io/

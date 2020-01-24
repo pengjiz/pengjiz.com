@@ -11,10 +11,8 @@ draft: false
 變得輕快起來，頭腦也變得無比清晰。從那時起，我變成了另外一個男子⋯⋯絲襪的美下次再
 談，這次我想討論一個更為迫切的問題：如何度量絲襪的透明度。
 
-長久以來，大家都是以 [丹尼
-數](https://en.wikipedia.org/wiki/Units_of_textile_measurement#Denier) 來衡量絲
-襪的透明度。雖然這個單位在女性挑選絲襪時十分便利，在描述透明度時它並不準確。想像
-如下情景：
+長久以來，大家都是以 [丹尼數][denier] 來衡量絲襪的透明度。雖然這個單位在女性挑選
+絲襪時十分便利，在描述透明度時它並不準確。想像如下情景：
 
 > 紳士甲：我喜歡 60D。
 >
@@ -35,3 +33,5 @@ draft: false
 絲襪？）比如，「我喜歡 #898989。」、「我喜歡 #ededff。」這樣。
 
 如果你也希望將絲襪透明度的衡量標準化，歡迎給我發送郵件討論。
+
+[denier]: https://en.wikipedia.org/wiki/Units_of_textile_measurement#Denier

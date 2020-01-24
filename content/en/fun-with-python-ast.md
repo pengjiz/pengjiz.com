@@ -7,12 +7,10 @@ draft: false
 ---
 
 I have been told for a long time that there is an `ast` module in the Python
-standard libraries, which is used by many useful tools, for example,
-[pytest](https://github.com/pytest-dev/pytest/tree/master/src/_pytest). However,
-I was only vaguely aware of it, and had never been motivated to learn it. A
-while ago, I found an interesting library
-[moshmosh](https://github.com/thautwarm/moshmosh), which made me finally go
-through the documentation of `ast` and try to play with it.
+standard libraries, which is used by many useful tools, for example, [pytest].
+However, I was only vaguely aware of it, and had never been motivated to learn
+it. A while ago, I found an interesting library [moshmosh], which made me
+finally go through the documentation of `ast` and try to play with it.
 
 As an example, in this post I will implement a simple "pipeline" feature
 available in many places -- Unix shells, F#, Lisp, R, etc.
@@ -31,8 +29,8 @@ class Pipe:
         return Pipe(fn(self.data))
 ```
 
-This is the approach taken by the [Pipe](https://github.com/JulienPalard/Pipe)
-library (although the implementation is slightly different). It can be used as:
+This is the approach taken by the [Pipe] library (although the implementation is
+slightly different). It can be used as:
 
 ```python
 import functools
@@ -163,11 +161,9 @@ one is to make a wrapper around the interpreter that reads a file into a string,
 parses it, transforms it, and finally executes it -- exactly what we do in the
 snippets above. However, in that way we cannot apply the transformations to the
 modules imported. The second way is to customize how a module is loaded with the
-[meta path hook](https://docs.python.org/3/reference/import.html#the-meta-path).
-In that way all the modules imported will use the extensions. That is what the
-moshmosh library uses. If you are interested you can have a look at the
-[`extension_register.py`](https://github.com/thautwarm/moshmosh/blob/master/moshmosh/extension_register.py)
-file.
+[meta path hook]. In that way all the modules imported will use the extensions.
+That is what the moshmosh library uses. If you are interested you can have a
+look at the [`extension_register.py`][register] file.
 
 `ast` gives us a chance to modify the AST before it is executed. In some sense
 that is like what we do with Lisp macros. I think it is neat but perhaps will
@@ -175,3 +171,9 @@ not use it in any serious project. Even though it is less hacky than `inspect`,
 it still feels like a big hack. Besides, I tend to avoid introducing new
 dependencies only for syntax sugars. The low magic way is good enough in most
 cases.
+
+[pytest]: https://github.com/pytest-dev/pytest/tree/master/src/_pytest
+[moshmosh]: https://github.com/thautwarm/moshmosh
+[Pipe]: https://github.com/JulienPalard/Pipe
+[meta path hook]: https://docs.python.org/3/reference/import.html#the-meta-path
+[register]: https://github.com/thautwarm/moshmosh/blob/master/moshmosh/extension_register.py
