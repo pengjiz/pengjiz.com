@@ -1,7 +1,7 @@
 ---
 title: 絲襪透明度
-date: "2017-10-19T23:32:26-04:00"
-keywords: ["life"]
+date: 2017-10-19T23:32:26-04:00
+keywords: [life]
 description: 關於絲襪透明度單位的一些想法。
 draft: false
 ---

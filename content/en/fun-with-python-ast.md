@@ -1,7 +1,7 @@
 ---
 title: Fun with Python AST
-date: "2019-10-29T21:05:48-04:00"
-keywords: ["dev", "python"]
+date: 2019-10-29T21:05:48-04:00
+keywords: [dev, python]
 description: Or another way to complicate your code.
 draft: false
 ---

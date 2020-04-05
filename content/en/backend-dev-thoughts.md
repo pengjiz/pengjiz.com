@@ -1,7 +1,7 @@
 ---
 title: Lessons Learned When Building an API Server
-date: "2018-05-19T14:17:54-04:00"
-keywords: ["dev", "python"]
+date: 2018-05-19T14:17:54-04:00
+keywords: [dev, python]
 description: Random thoughts on backend development.
 draft: false
 ---
