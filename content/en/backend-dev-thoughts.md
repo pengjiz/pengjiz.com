@@ -13,7 +13,7 @@ out of my comfortable zone. For me, this was a wonderful journey, and I want to
 share some of my thoughts I gained during the process. This post is on the
 backend.
 
-## My Mistakes with Python
+## My mistakes with Python
 
 For some reason the programming language for this project had to be Python. I
 did use Python a lot mainly for machine learning, Bayesian statistics, and
@@ -25,7 +25,7 @@ are the top three of my mistakes.
    few important functions, like the algorithm implementation part. That might
    be fine for data analysis of which the work is mostly interactive. However,
    when developing an API server, insufficient testing together with dynamic
-   typing make refactoring very painful.
+   typing make refactoring painful.
 
 2. Dependency management. `conda` has been my tool of choice for managing python
    versions and virtual environments for a long time. For me, `conda` is better
@@ -38,22 +38,22 @@ are the top three of my mistakes.
    environment with `conda` but install packages with `pip`. I specified all the
    dependencies with exact version numbers in the `requirements.txt` file, and
    installed all the development dependencies with a `Makefile` target. This
-   approach works, but is not very flexible and reliable. I have to upgrade
+   approach works, but is not flexible or reliable. I have to upgrade
    dependencies manually, and the environment is not guaranteed to be exactly
    the same every time because I cannot freeze the dependencies (otherwise the
    development dependencies will also be locked). `pipenv` seems to be able to
    handle all those issues, but I need to find a way to use it with `conda`.
 
 3. Iterators. Python iterators and generators can be quite useful, but they have
-   bitten me several times. It is very easy to drain an iterator accidentally
-   and then get some cryptic errors. I do agree that iterators should be
-   "collected" if we want to save it for non-temporarily purposes, but it is
-   very easy (at least for me) to forget. Because a lot of functions (`map`,
-   `filter`, `zip`, etc) return iterators (in Python 3) and there is no way to
-   notice it before our program gives wrong results. I think type annotations
-   and static type checking will help, but the ecosystem is still not good now.
+   bitten me several times. It is easy to drain an iterator accidentally and
+   then get some cryptic errors. I do agree that iterators should be "collected"
+   if we want to save it for non-temporarily purposes, but it is easy (at least
+   for me) to forget. Because a lot of functions (`map`, `filter`, `zip`, etc)
+   return iterators (in Python 3) and there is no way to notice it before our
+   program gives wrong results. I think type annotations and static type
+   checking will help, but the ecosystem is still not good now.
 
-## Web Framework Choice
+## Web framework choice
 
 There are a few web frameworks in Python: Django, Flask, Tornado, etc. Before
 this project, I once made a blog app with Django, and a dashboard with Flask.
@@ -121,12 +121,12 @@ Python. Such things are not a big deal after you become familiar with Flask, but
 I do not like them.
 
 The third thing is on extensions. The extensions of Flask are mostly
-lightweight. That is good for me in most cases, but sometimes I feel very
-jealous of those full-featured Django extensions. For example, as we all know
-Django has a builtin `admin` module, which is very well designed, while the
-[Flask-Admin] seems not very usable to me.
+lightweight. That is good for me in most cases, but sometimes I feel jealous of
+those full-featured Django extensions. For example, as we all know Django has a
+builtin `admin` module, which is well designed, while the [Flask-Admin] seems
+not usable to me.
 
-## API Design
+## API design
 
 In short, the lesson I learned was to use GraphQL if possible. It makes the
 frontend part much easier, and even if you hate your frontend partner, it does
@@ -144,15 +144,14 @@ verbose.
 
 Actually deployment was the most time consuming part in the backend project, and
 I learned a lot from it. The server we are using is one managed by CMU. It had
-been used for hosting Django apps before so many libraries and packages were
+been used for hosting Django apps before and many libraries and packages were
 available when I got it. Therefore, at first I decided to deploy the app
-directly on the server, which I think is a very silly decision now. There were
-so many weird issues to deal with -- outdated packages, dependency conflicts,
-etc. Then I switched to Docker and things became a lot easier. I could upgrade
-the app and dependencies freely -- just build and push a new image and run a new
+directly on the server, which I think is a silly decision now. There were so
+many weird issues to deal with -- outdated packages, dependency conflicts, etc.
+Then I switched to Docker and things became a lot easier. I could upgrade the
+app and dependencies freely -- just build and push a new image and run a new
 container, and I could also use my only laptop as a staging machine without much
-pain. I am still not very familiar with Docker but the experience so far is
-positive.
+pain. I am still not familiar with Docker but the experience so far is positive.
 
 [local proxies]: http://werkzeug.pocoo.org/docs/0.14/local/
 [Flask-Admin]: https://github.com/flask-admin/flask-admin

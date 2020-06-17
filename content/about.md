@@ -11,7 +11,7 @@ Hi! My name is Pengji Zhang and this is my personal homepage and blog.
 Currently I am living in beautiful Pittsburgh, United States. If you would like
 to get in touch, please send me an email to the address [me@pengjiz.com][email].
 
-## This Site
+## This site
 
 This site is built with [Hugo] using the *simple* theme crafted by me. You can
 find the source code of this site [on GitHub][repo]. [Netlify] automatically
