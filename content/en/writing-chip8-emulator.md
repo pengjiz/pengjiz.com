@@ -108,12 +108,12 @@ periodically, that is, all positive key values are decremented.
 
 ## Emulation performance
 
-There is no much information on actually running the emulation -- how faster the
-CPU executes instructions, how frequently the screen gets refreshed, and how
-they keep in sync. It seems that the standard way is to run a loop at a screen
+There is no much information on how to run the emulation -- how fast the CPU
+executes instructions, how often the screen gets refreshed, how they keep in
+sync, etc. It seems that the standard way is to run the main loop at a screen
 refresh rate and inside the loop the CPU executes multiple steps and then the
 screen gets redrawn. I supposed it would be cool if we could separately control
-how faster those things ran, and I did that:
+the CPU and the screen:
 
 ```haskell
 -- Set up events
