@@ -5,7 +5,7 @@ theme = "simple"
 languageCode = "en"
 hasCJKLanguage = true
 paginate = 10
-disableKinds = [ "taxonomy", "taxonomyTerm" ]
+disableKinds = [ "taxonomy", "term" ]
 footnoteReturnLinkContents = "[Back]"
 
 # Author information
