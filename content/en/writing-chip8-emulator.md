@@ -18,9 +18,6 @@ starting point and I have finally implemented it recently:
 The source code can be found [here][repo]. It turned out to be quite enjoyable
 and straightforward. However, I did encounter some problems.
 
-[wasamasa's post]: https://emacsninja.com/posts/smooth-video-game-emulation-in-emacs.html
-[repo]: https://github.com/pengjiz/chip8hs
-
 ## CHIP-8 virtual machine
 
 The CHIP-8 virtual machine consists of only basic components you would expect on
@@ -85,8 +82,6 @@ that.
 
 Then I encountered two problems -- maintaining the keypad state and poor
 emulation performance.
-
-[brick]: https://github.com/jtdaugherty/brick
 
 ## Maintaining keypad state
 
@@ -173,3 +168,7 @@ and accuracy of the timer so it is possible to achieve high emulation speed, and
 running a low-frequency heavy loop is easier and more efficient than running a
 high-frequency light loop. My current approach works fine for a simple machine
 like CHIP-8, but perhaps it will not work for anything more complicated.
+
+[wasamasa's post]: https://emacsninja.com/posts/smooth-video-game-emulation-in-emacs.html
+[repo]: https://github.com/pengjiz/chip8hs
+[brick]: https://github.com/jtdaugherty/brick
