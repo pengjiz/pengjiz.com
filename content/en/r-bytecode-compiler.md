@@ -49,7 +49,7 @@ f
 
 The function `disassemble`, as its name suggests, shows the disassembly of a
 bytecode object. However, the output is not friendly. If you run
-`disassemble(f)`, this is what you will get:
+`compiler::disassemble(f)`, this is what you will get:
 
 ```
 list(.Code,
@@ -122,6 +122,8 @@ loaded directly from the pool without doing the calculation again. Because
 function arguments are usually compiled as well, constant folding works there:
 
 ```r
+library(compiler)
+
 f <- function(x) x
 g <- function() f(1 + 2 - 3 * 4 / 5)
 disassemble(cmpfun(g))
@@ -170,7 +172,6 @@ f <- function() {
     i * 2
 }
 g <- cmpfun(f)
-
 system.time(for (i in 1:1000) f())
 #  user  system elapsed
 # 0.091   0.000   0.091
