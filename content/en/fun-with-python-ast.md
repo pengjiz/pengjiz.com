@@ -176,4 +176,4 @@ cases.
 [moshmosh]: https://github.com/thautwarm/moshmosh
 [Pipe]: https://github.com/JulienPalard/Pipe
 [meta path hook]: https://docs.python.org/3/reference/import.html#the-meta-path
-[register]: https://github.com/thautwarm/moshmosh/blob/master/moshmosh/extension_register.py
+[register]: https://github.com/thautwarm/moshmosh/blob/12435ac6288e88b42ea13d59825b90b37e297f38/moshmosh/extension_register.py
