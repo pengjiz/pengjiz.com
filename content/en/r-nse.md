@@ -77,9 +77,9 @@ evaluate arguments in a different way.
 
 ## Non-standard evaluation
 
-Non-standard evaluation, or NSE for short, means to evaluate function calls in a
-non-standard way. So, instead of the value we can just get the formatted string
-of an expression:
+Non-standard evaluation, or NSE for short, means to evaluate function calls in
+a, well, non-standard way. For instance, instead of the value we can just get
+the formatted string of an expression:
 
 ```r
 nse_exprstr <- function(expr) {
@@ -92,7 +92,7 @@ nse_exprstr(x + y * z)
 Here `substitute` replaces the argument `expr` with its expression and
 `deparse1` (new in R 4.0.0) converts the expression to a string. This is how the
 base `plot` function generates labels. We can also evaluate an expression in a
-different environment from the one in which the expression should be evaluated:
+different environment from the one that should normally be used:
 
 ```r
 nse_env <- function(expr) {
@@ -177,7 +177,7 @@ problem. Even worse, there is no easy way to tell if a function uses NSE. If the
 author of a function does not write anything on that, there probably would be
 lots of fun to figure it out.
 
-Therefore, in my opinion NSE should be only used sparingly. Even though NSE may
+Therefore, I believe NSE should be only used sparingly. Even though NSE may
 bring a friendly interface at the beginning, it could cause more troubles later.
 I think `dplyr` is an example for that. It employs NSE heavily so users rarely
 need to write the name of a data frame. However, when people start to write

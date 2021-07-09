@@ -76,9 +76,9 @@ library [`brick`][brick]. `brick` employs the unidirectional model (which I
 think is also called the Flux architecture, the Elm architecture, or the Redux
 architecture, whatever). It maintains an event loop and processes events one by
 one to update the state. Then the interface gets redrawn accordingly. The
-library was easy-to-use, and the interface was done pretty quickly. I decided to
-"play" the sound only visually because I could not find an easy approach for
-that.
+library was easy-to-use, and the interface was done pretty quickly. Note that I
+decided to "play" the sound only visually because I could not find an easy
+approach for that.
 
 Then I encountered two problems -- maintaining the keypad state and poor
 emulation performance.
@@ -162,12 +162,13 @@ limiting the speed at the screen refresh rate. I did not find many resources on
 how real machines handle the "dropping frame" problem so I decided to keep the
 dirty flag as is.
 
-After all those trials and errors, now I understand why many choose to aggregate
-multiple instructions together: There will be no constraints from the resolution
-and accuracy of the timer so it is possible to achieve high emulation speed, and
-running a low-frequency heavy loop is easier and more efficient than running a
-high-frequency light loop. My current approach works fine for a simple machine
-like CHIP-8, but perhaps it will not work for anything more complicated.
+After all those trials and errors, now I guess I understand why many choose to
+aggregate multiple instructions together. In that way there will be no
+constraints from the resolution and accuracy of the timer so it is possible to
+achieve high emulation speed, and running a low-frequency heavy loop is easier
+and more efficient than running a high-frequency light loop. My current approach
+works fine for a simple machine like CHIP-8, but perhaps it will not work for
+anything more complicated.
 
 [wasamasa's post]: https://emacsninja.com/posts/smooth-video-game-emulation-in-emacs.html
 [repo]: https://github.com/pengjiz/chip8hs

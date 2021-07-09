@@ -195,9 +195,9 @@ I am not sure if we should add more optimizations to the compiler. I would
 choose another language rather than optimize the R code if I want better
 performance. Besides, adding more optimizations will inevitably slow down the
 compilation process and will perhaps make the experience worse -- I can still
-remember that the loading time of a Julia package always made me crazy a few
-year ago. However, I do think that the compiler deserves a better interface. It
-should allow users to extend the compiler a bit.
+remember how the loading time of a Julia package made me crazy a few years ago.
+However, I do think that the compiler deserves a better interface. It should
+allow users to extend the compiler a bit.
 
 [skeeto's post]: https://nullprogram.com/blog/2019/02/24/
 [R NSE]: {{< relref "/en/r-nse" >}}

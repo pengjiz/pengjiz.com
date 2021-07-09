@@ -172,7 +172,7 @@ it still feels like a big hack. Besides, I tend to avoid introducing new
 dependencies only for syntax sugars. The low magic way is good enough in most
 cases.
 
-[pytest]: https://github.com/pytest-dev/pytest/tree/master/src/_pytest
+[pytest]: https://pytest.org/
 [moshmosh]: https://github.com/thautwarm/moshmosh
 [Pipe]: https://github.com/JulienPalard/Pipe
 [meta path hook]: https://docs.python.org/3/reference/import.html#the-meta-path
