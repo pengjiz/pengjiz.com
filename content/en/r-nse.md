@@ -153,7 +153,7 @@ functions with NSE often do both code generation and code evaluation, they may
 bring more problems than Lisp macros, which usually only generate code.
 
 If you look at the documentation of `subset`, you will be warned that the
-function should be used interactively and may have "unanticipated consequences".
+function should be used interactively and may have "unanticipated consequences."
 Here is such a case:
 
 ```r

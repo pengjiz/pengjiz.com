@@ -9,11 +9,11 @@ draft: false
 Being a video game lover, I have put writing a game console emulator on my to-do
 list for a long time. However, I had never got into it until last year when I
 saw a [blog post][wasamasa's post] on implementing an emulator in Emacs for
-CHIP-8, a (virtual) machine with only 35 opcodes. That seemed to be a great
-starting point and I have finally implemented it recently:
+CHIP-8, a (virtual) machine with only 35 opcodes. That machine seemed to be a
+great starting point and I have finally implemented the emulator recently:
 
 {{< figure src="/media/images/chip8-tetris-demo.png"
-    caption="Playing *Tetris* with the emulator." >}}
+    caption="Playing *Tetris* with the CHIP-8 emulator." >}}
 
 The source code can be found [here][repo]. It turned out to be quite enjoyable
 and straightforward. However, I did encounter some problems.
@@ -58,7 +58,7 @@ data Machine = Machine
 
 At the beginning a program is loaded to the main memory. Then at each step, the
 CPU fetches an opcode (which is always two-byte long in CHIP-8) from the main
-memory at the address stores in the *program counter* (PC), executes the
+memory at the address stored in the *program counter* (PC), executes the
 instruction encoded by the opcode, which could be modifying registers, writing
 something to memory, or drawing something, and finally updates PC and repeats.
 
@@ -97,18 +97,17 @@ and I gave up on that idea quickly. There were just too many things to consider.
 
 Finally I decided to represent key states with non-binary values, and that is
 why in the `Machine` definition the keypad is a `Vector Int`. Any value that is
-positive is considered as "pressed", and when a key gets pressed its value is
+positive is considered as "pressed," and when a key gets pressed its value is
 set to a predefined number, like 20. Then the whole keypad gets *decayed*
-periodically, that is, all positive key values are decremented.
+periodically, that is, all positive key values are decremented. That solution
+ended up working well.
 
 ## Emulation performance
 
-There is no much information on how to run the emulation -- how fast the CPU
+There is little information on how to run the emulation -- how fast the CPU
 executes instructions, how often the screen gets refreshed, how they keep in
-sync, etc. It seems that the standard way is to run the main loop at a screen
-refresh rate and inside the loop the CPU executes multiple steps and then the
-screen gets redrawn. I supposed it would be cool if we could separately control
-the CPU and the screen:
+sync, etc. Based on some random information I gathered, here is what I decided
+to do:
 
 ```haskell
 -- Set up events
@@ -121,10 +120,9 @@ void . forkIO . forever $ do
   writeBChan chan Redraw
 ```
 
-It basically emits an `Execute` event to ask the CPU to execute one instruction
-at 1 kHz and a `Redraw` event to refresh the screen at 30 Hz. To avoid dropping
-frames under a low refresh rate, I added a dirty flag to the frame buffer as
-well:
+It basically emits an `Execute` event to ask the CPU to execute instructions at
+1 kHz and a `Redraw` event to refresh the screen at 30 Hz. To avoid dropping
+frames at a low refresh rate, I added a dirty flag to the frame buffer as well:
 
 ```haskell
 -- | Model for a frame buffer.
@@ -136,39 +134,25 @@ data FrameBuffer = FrameBuffer
   }
 ```
 
-If the frame buffer is dirty, the machine will not modify it but wait instead --
-a laggy screen to me is better than a choppy screen. Then I tried to play
-*Tetris*, and got a noticeable delay after pressing a key. So I started to play
-around the emulation speed and screen refresh rate, and the faster the machine
-ran, the slower the emulator was.
+If the frame buffer is dirty, the machine will not modify it but pause on the
+instruction instead. However, when I started to play *Tetris* with the emulator,
+I found the performance was not good, especially at the very beginning of the
+game when the borders were drawn. Then I realized that waiting for a dirty frame
+buffer to be cleared before writing to it might not be a good idea. Because
+CHIP-8 uses sprites that are 8 pixels in width and at most 15 pixels in height,
+programs have to combine multiple instructions to draw anything large.
+Therefore, not writing to a dirty buffer means occasionally limiting the speed
+of executing instructions at the screen refresh rate. So I ended up lifting that
+restriction and have not caught any issues with that thus far.
 
-Well, that is not so accurate. Actually the performance dropped after some
-point, and when the machine ran at the maximum speed, 1 MHz, the performance
-seemed worse than that at 1 kHz. After some trials, I suspected the cause was
-the bounded channel. Running the machine faster means the channel gets filled up
-faster, and a costly event may mess everything followed.
-
-So I increased the channel size and optimized rendering by caching the screen
-area. Finally I got a smooth emulator. Speaking of caching, it seems that
-`brick` does have some mechanism to prevent unnecessary redrawing. However,
-maybe the diffing algorithm is not so efficient or effective. Manually caching
-does improve performance apparently in my case.
-
-Also, I noticed that waiting for a dirty frame buffer to be cleaned might not be
-ideal in some cases. Because CHIP-8 uses sprites that are 8 pixels in width and
-at most 15 pixels in height, programs have to combine multiple instructions to
-fill a full screen. Therefore, not writing to a dirty buffer means occasionally
-limiting the speed at the screen refresh rate. I did not find many resources on
-how real machines handle the "dropping frame" problem so I decided to keep the
-dirty flag as is.
-
-After all those trials and errors, now I guess I understand why many choose to
-aggregate multiple instructions together. In that way there will be no
-constraints from the resolution and accuracy of the timer so it is possible to
-achieve high emulation speed, and running a low-frequency heavy loop is easier
-and more efficient than running a high-frequency light loop. My current approach
-works fine for a simple machine like CHIP-8, but perhaps it will not work for
-anything more complicated.
+In the final implementation, the dirty flag is still kept and maintained but
+used for cache invalidation in the user interface instead. From the
+documentation it seems that `brick` does some work to avoid unnecessary redraws,
+but manually caching the screen area seemed to indeed work better in my case.
+Besides, I also tweaked the default execution speed, the default refresh rate,
+and the size of the event channel. The current version is acceptably smooth for
+me. If you encounter performance issues, you may try to tweak those parameters.
+Different programs and different environments may need different configurations.
 
 [wasamasa's post]: https://emacsninja.com/posts/smooth-video-game-emulation-in-emacs.html
 [repo]: https://github.com/pengjiz/chip8hs
