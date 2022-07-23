@@ -5,6 +5,7 @@ theme = "simple"
 languageCode = "en"
 hasCJKLanguage = true
 paginate = 10
+rssLimit = 20
 disableKinds = [ "taxonomy", "term" ]
 footnoteReturnLinkContents = "[Back]"
 
