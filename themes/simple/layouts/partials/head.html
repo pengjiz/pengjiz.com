@@ -17,8 +17,6 @@
   {{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:image" content="{{ site.Params.logoURL | absURL }}">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700|Source+Code+Pro"
-        rel="stylesheet">
   <link href="{{ $styles.RelPermalink }}"
         integrity="{{ $styles.Data.Integrity }}"
         rel="stylesheet">

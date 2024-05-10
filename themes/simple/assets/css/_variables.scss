@@ -1,13 +1,5 @@
 // Typography
-$base-font-size: 18px !default;
-$base-font-family: "EB Garamond",
-                   "Noto Serif CJK SC",
-                   "Noto Serif CJK",
-                   "Source Han Serif SC",
-                   "Source Han Serif CN",
-                   "Source Han Serif",
-                   "Songti SC",
-                   serif !default;
+$base-font-family: serif !default;
 $p-font-size: 1rem !default;
 $p-indent-size: 2 * $p-font-size !default;
 $line-height: 1.62 * $p-font-size !default;
@@ -28,7 +20,7 @@ $marker-color: #f7f7f7 !default;
 $minor-color: rgba(0, 0, 0, 0.3) !default;
 
 // Code
-$code-font-family: "Source Code Pro", monospace !default;
+$code-font-family: monospace !default;
 $code-font-size: 0.8rem !default;
 $code-base-color: $base-color !default;
 $code-string-color: $alternate-color !default;
