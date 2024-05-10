@@ -1,4 +1,4 @@
 ---
-title: Chinese
-description: Chinese blog of Pengji Zhang.
+title: 博客
+description: 中文博客。
 ---

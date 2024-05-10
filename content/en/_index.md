@@ -1,4 +1,4 @@
 ---
 title: English
-description: English blog of Pengji Zhang.
+description: English blog.
 ---
