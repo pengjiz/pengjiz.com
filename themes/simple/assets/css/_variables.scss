@@ -1,5 +1,12 @@
 // Typography
-$base-font-family: serif !default;
+$base-font-size: 110% !default;
+$base-font-family: "Crimson Text",
+                   "Noto Serif CJK SC",
+                   "Noto Serif CJK",
+                   "Source Han Serif SC",
+                   "Source Han Serif CN",
+                   "Source Han Serif",
+                   serif !default;
 $p-font-size: 1rem !default;
 $p-indent-size: 2 * $p-font-size !default;
 $line-height: 1.62 * $p-font-size !default;

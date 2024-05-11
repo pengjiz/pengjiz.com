@@ -5,6 +5,10 @@ body {
 }
 
 // Typography
+html {
+  font-size: $base-font-size;
+}
+
 body {
   color: $base-color;
   font-family: $base-font-family;
