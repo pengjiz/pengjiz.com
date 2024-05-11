@@ -26,8 +26,9 @@ anything in any way you like.
 ## Privacy
 
 I will not collect any data on this website. It does not use Google Analytics or
-anything similar. However, it does use [jsDelivr] for loading [MathJax] and
-[Netlify] for hosting. They may collect visitors' information.
+anything similar. However, it does use [Google Fonts] for web fonts, [jsDelivr]
+for loading [MathJax], and [Netlify] for hosting. They may collect some
+information of visitors to this website.
 
 [email]: mailto:me@pengjiz.com
 [Hugo]: https://gohugo.io/
@@ -35,6 +36,7 @@ anything similar. However, it does use [jsDelivr] for loading [MathJax] and
 [Let's Encrypt]: https://letsencrypt.org/
 [Feather]: https://feathericons.com/
 [repo]: https://github.com/pengjiz/pengjiz.com
+[Google Fonts]: https://fonts.google.com/
 [jsDelivr]: https://www.jsdelivr.com/
 [MathJax]: https://www.mathjax.org/
 [Netlify]: https://www.netlify.com/
