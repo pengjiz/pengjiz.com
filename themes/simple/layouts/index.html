@@ -1,10 +1,6 @@
 {{ define "main" }}
 <main role="main" class="home">
   <section class="home__header">
-    <a href="{{ "/" | relURL }}" class="home__header__logo">
-      <img alt="HeArt logo"
-           src="{{ site.Params.logoURL | relURL }}">
-    </a>
     <h1 class="home__header__title">
       <a href="{{ "/" | relURL }}">
         {{- if .Title -}}
@@ -23,14 +19,13 @@
       <a href="{{ "/zh" | relURL }}"><span lang="zh">博客</span></a>
     </nav>
   </section>
+  {{ with .Content -}}
+  <section class="home__introduction">
   <hr>
-  <section class="home__quote">
-    <div class="home__quote__quote" lang="zh">
-      {{ .Params.quote }}
-    </div>
-    <div class="home__quote__translation">
-      {{ .Params.quoteTrans }}
-    </div>
+  <article class="entry__content">
+    {{ . }}
+  </article>
   </section>
+  {{- end }}
 </main>
 {{ end }}
